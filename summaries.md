@@ -49,3 +49,32 @@
 * **Continue Question Bank:** Keep adding practice questions to the study guide.
 * **Topic Deep Dives:** Revisit specific challenging domains (cryptography, networking, governance) for crash courses if needed.
 
+--------------------------------------------------------------------------------
+
+### Session Date: 2026-07-26 12:56:28 -07:00
+
+#### Session Summary Report
+
+**1. Tutor Rules Expansion (`AGY.md`)**
+* **Domain Tracking Added:** Updated the core tutor rules in `AGY.md` to require tracking the specific CompTIA Security+ SY0-701 exam domain for every question asked.
+
+**2. Practice Questions Logged (`sec+_practice_Qs.md`)**
+* **Retroactive Domain Tagging:** Automatically went back and updated previous practice questions to include their respective domains.
+* **New Questions & Explanations:** Answered and comprehensively logged multiple new practice questions covering:
+  * **Domain 5.0:** Change management (Backout plans).
+  * **Domain 1.0:** Security Controls (Preventive controls via DLP).
+  * **Domain 3.0:** Zero Trust architecture for threat scope reduction.
+  * **Domain 5.0:** Data Obfuscation (Tokenization vs. Encryption).
+  * **Domain 3.0:** PKI Incident Response (Revoking compromised certificates).
+  * **Domain 3.0:** Secure Software Development (Atomic operations & Version Control).
+
+**3. Deep Dive Clarifications**
+* **Backout Plans vs Version Control:** Clarified that version control acts as the backup, while the backout plan is the instruction manual for restoring it.
+* **Tokenization vs Encryption:** Used a "coat check" analogy to explain tokenization and established the concept of Defense-in-Depth when databases use both. Added these specific notes directly into the study guide for future review.
+* **Atomic Operations:** Explained atomic operations using a vending machine analogy to demonstrate "all-or-nothing" execution.
+
+#### Next Steps & Future Work
+* **Continue Question Bank:** Keep adding practice questions to the study guide, ensuring domains are consistently tracked.
+* **Review Analogies:** Reread the appended notes (like the coat check analogy) whenever struggling with data obfuscation concepts.
+
+--------------------------------------------------------------------------------
