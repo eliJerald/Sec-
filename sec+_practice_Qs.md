@@ -1,7 +1,7 @@
 # Security+ SY0-701 Practice Questions
 
-### Question 1
-An attacker uses a 50 dollar device to copy the data from a high-level executive’s badge while standing near them in a crouded elevator. Which of the following best describes this attack type?
+
+1. An attacker uses a 50 dollar device to copy the data from a high-level executive’s badge while standing near them in a crouded elevator. Which of the following best describes this attack type?
 
 A. Biometric Spoofing
 B. Brute force
@@ -26,8 +26,8 @@ RFID (Radio Frequency Identification) cloning involves using a specialized, ofte
 
 --------------------------------------------------------------------------------
 
-### Question 2
-An organization is migrating its security stack to a cloud-native model to ensure mobile users receive the same security policy enforcement as office users. Which of the following would be the best choice for this requirement?
+
+2. An organization is migrating its security stack to a cloud-native model to ensure mobile users receive the same security policy enforcement as office users. Which of the following would be the best choice for this requirement?
 
 A. Software-defined networking
 B. Secure Access Service Edge
@@ -52,7 +52,7 @@ Secure Access Service Edge (SASE) is a cloud-native architecture that combines n
 
 --------------------------------------------------------------------------------
 
-### Question 3
+
 10. Sally wants to ensure that her change management process includes a procedure for what to do if the change fails. What should she create to handle this possibility?
 
 A. An impact analysis
@@ -76,7 +76,7 @@ A backout plan (often called a rollback plan) defines the specific steps an orga
 
 --------------------------------------------------------------------------------
 
-### Question 4
+
 13. Ben has deployed a data loss prevention (DLP) tool that inspects data and flags specific data types for review before emails containing it are sent outside the organization. What control type best describes this type of solution?
 
 A. Managerial
@@ -100,7 +100,7 @@ A preventive control is designed to stop a security incident from occurring in t
 
 --------------------------------------------------------------------------------
 
-### Question 5
+
 16. Charles wants to reduce the threat scope of compromised credentials. What type of the following security controls is best suited to meeting this need?
 
 A. Single sign-on
@@ -124,7 +124,7 @@ Zero Trust Architecture operates on the principle of "never trust, always verify
 
 --------------------------------------------------------------------------------
 
-### Question 6
+
 17. Carol wants to obfuscate data that is contained in her database. She wants to be able to refer to the data elements without having the actual data exposed. What type of obfuscation option should she select?
 
 A. Tokenization
@@ -154,7 +154,7 @@ Tokenization is the process of replacing sensitive data (like a credit card numb
 
 --------------------------------------------------------------------------------
 
-### Question 7
+
 19. Selah's organization has recently experienced a breach and the private keys for her organization's certificates were exposed. What should she immediately do?
 
 A. Reissue the certificates with changed hostnames and other details.
@@ -178,7 +178,7 @@ When a private key is exposed, the certificate is instantly compromised because 
 
 --------------------------------------------------------------------------------
 
-### Question 8
+
 22. Greg wants to implement a version control system to ensure that changes are made in ways that will not cause problems for his organization's critical software. Which of the following is not a common feature of version control systems designed for software source code?
 
 A. Atomic operations
@@ -199,5 +199,141 @@ Regression testing is a software *testing* practice used to ensure that recent c
 - **A. Atomic operations:** This is a common feature of a VCS. An atomic operation ensures that a commit is treated as a single unit—it either entirely succeeds or entirely fails, preventing partial or corrupted code updates from breaking the repository.
 - **B. File locking:** This is a common feature (especially in centralized VCS like Subversion or Team Foundation Version Control) that prevents multiple developers from editing the same file at the exact same time and causing conflicts.
 - **D. Tagging and labeling:** This is a standard VCS feature used to mark specific points in the repository's history as important (e.g., tagging a specific commit as "Version 1.0").
+
+--------------------------------------------------------------------------------
+
+24. Lisa wants to ensure that theft of a device will not lead to exposure of the data contained on the device if the device is locked or turned off. What type of encryption should she select to best ensure this?
+
+A. Volume-level encryption
+B. Full- disk encryption
+C. File-level encryption
+D. Partition-level encryption
+
+**1. The Domain:** Domain 3: Security Architecture
+
+**2. The Answer:** B. Full- disk encryption
+
+**3. Why that answer is correct:**
+Full-disk encryption (FDE) protects the entire contents of a storage drive. It encrypts the operating system, all system files, temporary files, swap space (virtual memory), and all user data. When a device is powered off or locked, the encryption keys are wiped from the computer\'s memory. If the device is stolen in this state, a thief cannot read any data without the proper authentication credentials. This provides the most comprehensive protection against physical theft.
+
+**4. Why the other answers are incorrect:**
+- **A. Volume-level encryption:** This only encrypts a specific storage volume. If sensitive data is written outside of this volume (like in temporary files or a pagefile on the main system volume), it remains unencrypted and vulnerable to exposure.
+- **C. File-level encryption:** This only encrypts individually selected files. It requires the user to remember to encrypt specific data. The operating system, metadata, and temporary copies of the files remain unencrypted, creating opportunities for data leakage.
+- **D. Partition-level encryption:** Similar to volume-level encryption, this only protects a single partition. If any sensitive data makes its way to a different, unencrypted partition on the device, it will be exposed if the device is stolen.
+
+--------------------------------------------------------------------------------
+
+25. Mahmoud has been asked to implement an allow list for websites that users at his company can visit. What concern should he bring up to management due to this request?
+
+A. Allow lists cannot be used for websites.
+B. Allow lists are overly permissive and are likely to allow unwanted sites to be visited.
+C. Using an allow list for websites will take a lot of time to maintain.
+D. Using an allow list for websites is easily bypassed.
+
+**1. The Domain:** Domain 3: Security Architecture (and Domain 4: Security Operations)
+
+**2. The Answer:** C. Using an allow list for websites will take a lot of time to maintain.
+
+**3. Why that answer is correct:**
+An allow list (also known as a whitelist) operates on the principle of "Implicit Deny." This means that every single website on the internet is automatically blocked by default, and a user can only access a site if the administrator has manually added it to the approved list. Because modern businesses rely on hundreds of different websites, and those websites constantly pull resources (like images and scripts) from many other hidden domains, building and constantly updating this list creates a massive, ongoing administrative burden for the IT team. 
+
+**4. Why the other answers are incorrect:**
+- **A. Allow lists cannot be used for websites:** This is false. Web proxies and enterprise firewalls can easily implement allow lists to control web traffic.
+- **B. Allow lists are overly permissive and are likely to allow unwanted sites to be visited:** This is the exact opposite of reality. Allow lists are extremely restrictive, not permissive. A *block list* (blacklist) is what is considered overly permissive because it allows access to everything except what is explicitly blocked.
+- **D. Using an allow list for websites is easily bypassed:** If implemented correctly on a corporate network (like routing all traffic through a secure web gateway or firewall), an allow list is very difficult for a standard user to bypass.
+
+**Notes: Alternatives to Allow Lists**
+Instead of a strict Allow List (which creates a huge administrative burden), companies typically use a combination of three methods:
+1. **Block List (Deny List):** The exact opposite of an Allow List. The entire internet is open by default, *except* for specific websites manually added to a "banned" list.
+2. **Content Filtering (Category Filtering):** A system (like a firewall or secure web gateway) automatically categorizes the internet. IT can block entire categories (like Gambling or Malware) with a single click.
+3. **Exception List:** If a legitimate site is accidentally caught in a blocked category, IT can add that specific site to an Exception List (a tiny, manageable Allow List) to let it through.
+
+--------------------------------------------------------------------------------
+
+27. What hardware component is used to generate, store, and manage cryptographic keys?
+
+A. A CPU
+B. A NSA
+C. A TPM
+D. A CCA
+
+**1. The Domain:** Domain 3: Security Architecture
+
+**2. The Answer:** C. A TPM
+
+**3. Why that answer is correct:**
+A TPM (Trusted Platform Module) is a specialized, secure hardware microchip that is usually permanently installed on a computer's motherboard. Its primary purpose is to act as a secure vault to generate, store, and manage cryptographic keys. Because the keys are locked inside this dedicated hardware chip, they are highly protected against software-based attacks and malware. It is the exact chip we talked about earlier that stores the keys for Full-Disk Encryption!
+
+**4. Why the other answers are incorrect:**
+- **A. A CPU:** The Central Processing Unit is the "brain" of the computer that handles general calculations and runs the operating system. While it helps process data, it is not a dedicated, secure vault designed specifically for storing cryptographic keys.
+- **B. A NSA:** The National Security Agency (NSA) is a United States government intelligence agency responsible for global monitoring, collection, and processing of information. It is an organization, not a piece of computer hardware.
+- **D. A CCA:** In a cybersecurity context, CCA usually stands for "Chosen-Ciphertext Attack" (a type of cryptographic attack model) or "Common Cryptographic Architecture." Regardless, it is not a physical hardware component installed in a computer for key storage.
+
+--------------------------------------------------------------------------------
+
+28. Chris wants to check to see if a certificate has been revoked. What protocol can he use to validate the current status of a certificate?
+
+A. TLS
+B. OCRS
+C. SSL
+D. OCSP
+
+**1. The Domain:** Domain 3: Security Architecture
+
+**2. The Answer:** D. OCSP
+
+**3. Why that answer is correct:**
+OCSP stands for **Online Certificate Status Protocol**. When your web browser wants to make sure a website's digital certificate is still valid and hasn't been compromised, it uses OCSP to ask the Certificate Authority (the organization that issued the certificate) for a real-time status check. The server responds quickly with "good," "revoked," or "unknown." This is much faster and more efficient than downloading a massive list of every revoked certificate (which is called a CRL, or Certificate Revocation List).
+
+**4. Why the other answers are incorrect:**
+- **A. TLS (Transport Layer Security):** This is the actual encryption protocol used to secure traffic over the internet (it's what makes the "S" in HTTPS). While TLS relies on valid certificates to build that secure connection, it is not the protocol used to check the *revocation status* of those certificates.
+- **B. OCRS:** This is a made-up acronym in this context, put there to confuse you because it looks similar to OCSP. In other areas of IT, OCR stands for Optical Character Recognition (like scanning a document into text), which has nothing to do with certificates.
+- **C. SSL (Secure Sockets Layer):** This is the older, obsolete predecessor to TLS. Just like TLS, it is an encryption protocol, not a method for checking if a certificate has been revoked.
+
+--------------------------------------------------------------------------------
+
+29. Brian's organization uses a process where a secure module boots systems, then monitors them as each boot stage proceeds. It validates each signed boot stage and reports on whether the boot process was correct or not when complete. What is the secure module used to verify these stages called?
+
+A. A secure initiation manager
+B. A root of trust
+C. A boot hash
+D. A cryptographic boot manager
+
+**1. The Domain:** Domain 3: Security Architecture
+
+**2. The Answer:** B. A root of trust
+
+**3. Why that answer is correct:**
+A "Root of Trust" (RoT) is the foundational security component within a computer system (often embedded inside the TPM hardware chip we discussed earlier). Because the computer has to trust *something* from the very moment it powers on, the Root of Trust serves as that absolute, unquestionable starting point. During the boot process (often called Secure Boot or Measured Boot), the Root of Trust acts like a strict security guard, checking the digital signatures of every piece of software trying to load. If it verifies everything is correct and unaltered, the computer finishes booting.
+
+**4. Why the other answers are incorrect:**
+- **A. A secure initiation manager:** This is a completely fabricated term designed to sound highly technical and trick you on the exam. 
+- **C. A boot hash:** A hash is a mathematical fingerprint of data used to prove that a file hasn't been tampered with. While the Root of Trust might *read* or *check* a hash during the boot process to verify a file's integrity, a hash itself is just a piece of data, not the active "secure module" doing the monitoring.
+- **D. A cryptographic boot manager:** Like option A, this is another fabricated term that doesn't exist in standard cybersecurity frameworks.
+
+**Notes: Secure Boot vs. Measured Boot (Handling Infections)**
+*   **Secure Boot (The Strict Bouncer):** If the Root of Trust detects that boot files (like the OS) have been infected or altered, it **halts the boot process completely**. The computer will refuse to start and will display a security error.
+*   **Measured Boot (The Tattletale):** The computer **will still boot up**, even if infected. However, the Root of Trust takes notes (measures hashes) of everything that loads. Once booted, it sends these notes to a central server (Remote Attestation). If the server detects an infection from these notes, it immediately blocks the computer from the corporate network.
+
+--------------------------------------------------------------------------------
+
+30. A vulnerability scan shows that an embedded device that Alice is responsible for has a vulnerability. She knows the vendor is no longer in business and that there is no updated firmware or software update for the device. To resolve the issue, Alice places a firewall between the device and the rest of the network and creates rules that prevent the vulnerable service from being available to other devices. What type of control has Alice deployed?
+
+A. A directive control
+B. A compensating control
+C. A detective control
+D. A procedural control
+
+**1. The Domain:** Domain 1: General Security Concepts
+
+**2. The Answer:** B. A compensating control
+
+**3. Why that answer is correct:**
+A compensating control is a "Plan B" security measure that you use when the primary or ideal security control is impossible or too expensive to implement. In this scenario, the ideal primary control is obvious: patch the vulnerability by updating the device's firmware. However, since the vendor is out of business, patching is impossible. By putting a firewall in front of the device instead, Alice mitigated the risk using an alternative method. This is the textbook definition of a compensating control.
+
+**4. Why the other answers are incorrect:**
+- **A. A directive control:** This type of control uses rules and regulations to dictate user behavior (like an Acceptable Use Policy or a "No Tailgating" sign). A firewall is a technical piece of software/hardware, not a set of written directions for humans.
+- **C. A detective control:** Detective controls are designed to identify and record an incident *as* or *after* it occurs (like security cameras, audit logs, or intrusion detection alerts). By actively blocking the vulnerable traffic with rules, Alice's firewall is acting as a preventative measure, not just watching and detecting.
+- **D. A procedural control:** Procedural controls (often grouped under administrative controls) involve standard operating procedures, business processes, and employee training. Installing and configuring a firewall is a technical control, not a procedural one.
 
 --------------------------------------------------------------------------------
