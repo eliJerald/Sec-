@@ -337,3 +337,54 @@ A compensating control is a "Plan B" security measure that you use when the prim
 - **D. A procedural control:** Procedural controls (often grouped under administrative controls) involve standard operating procedures, business processes, and employee training. Installing and configuring a firewall is a technical control, not a procedural one.
 
 --------------------------------------------------------------------------------
+
+### Question:
+37. Renee wants to ensure that her logs support nonrepudiation. What should she do to ensure this?
+A. Encrypt, then hash the logs.
+B. Hash the logs and then digitally sign them.
+C. Digitally sign the log file, then encrypt it.
+D. Hash, then encrypt the logs.
+
+**1. Domain and Objective Category:**
+Domain 1: General Security Concepts (Objective 1.2: Compare and contrast fundamental security concepts / Cryptography).
+
+**2. The Answer and Explanation:**
+**B. Hash the logs and then digitally sign them.**
+Nonrepudiation guarantees that the sender or creator of a file cannot deny their action. This is achieved using digital signatures. The actual process of creating a digital signature involves two steps: first, you hash the file (to ensure integrity), and then you encrypt that hash using the sender's private key. This proves the file hasn't changed and that only the owner of the private key could have signed it.
+
+**3. Incorrect Answers:**
+- **A. Encrypt, then hash the logs:** Encryption provides confidentiality (privacy), not nonrepudiation. 
+- **C. Digitally sign the log file, then encrypt it:** Renee only needs nonrepudiation. Encrypting it adds an unnecessary layer of confidentiality that wasn't requested. Option B is the better answer because it describes the actual mechanical steps of the signing process.
+- **D. Hash, then encrypt the logs:** Hashing provides integrity, and general encryption provides confidentiality. Neither provides nonrepudiation unless the encryption is specifically done on a hash using a private key (which is what a digital signature is).
+
+**4. Study Tips:**
+- **Keyword Association:** Whenever you see "Nonrepudiation", immediately look for "Digital Signatures" or "Private Keys". 
+- **The Formula:** Digital Signature = Hash the data + Encrypt the hash with a Private Key.
+
+--------------------------------------------------------------------------------
+
+### Question:
+38. Isaac wants to deploy sensors to detect intruders in a facility, but he is concerned about the sensors being overly sensitive. What type of sensor is best suited to detecting intruders in an open office environment without significant expense or issues with sensitivity?
+A. Infrared
+B. Pressure
+C. Microwave
+D. Ultrasonic
+
+**1. Domain and Objective Category:**
+Domain 1: General Security Concepts (specifically relating to Physical Security Controls and Sensors).
+
+**2. The Answer and Explanation:**
+**A. Infrared**
+Infrared (specifically Passive Infrared or PIR) sensors detect changes in thermal radiation (body heat) moving across their field of view. They are very common, inexpensive, and generally less prone to false alarms from things like air currents or small, non-heat-producing movements. This makes them the best choice for an open office environment where cost and over-sensitivity are concerns.
+
+**3. Incorrect Answers:**
+- **B. Pressure:** Pressure sensors (like mats placed under carpets) are expensive to deploy across a large open office environment and are difficult to hide effectively over a large area.
+- **C. Microwave:** Microwave sensors emit microwave pulses and measure their reflection. They can penetrate walls and are highly sensitive, which can lead to false alarms from movement *outside* the intended area (e.g., people walking in a hallway outside the office).
+- **D. Ultrasonic:** Ultrasonic sensors emit high-frequency sound waves and measure the reflection. They are highly sensitive to air movement (like HVAC systems turning on or off) and can easily cause false alarms in a typical office environment.
+
+**4. Study Tips:**
+- **Infrared (PIR) = Body Heat**. They are cheap, reliable, and ignore the wind/AC.
+- **Ultrasonic = Sound Waves**. Highly sensitive to air movement (HVAC).
+- **Microwave = Penetrates Walls**. Too sensitive for open offices next to busy hallways.
+
+--------------------------------------------------------------------------------
