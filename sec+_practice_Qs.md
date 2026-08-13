@@ -388,3 +388,285 @@ Infrared (specifically Passive Infrared or PIR) sensors detect changes in therma
 - **Microwave = Penetrates Walls**. Too sensitive for open offices next to busy hallways.
 
 --------------------------------------------------------------------------------
+
+**Question:** Which of the answers listed below refers to a Zero Trust Control Plane security approach that takes into account user identity, device security, network conditions, and other contextual information to enable dynamic access decisions?
+- Implicit trust
+- Monitoring and logging
+- Adaptive identity
+- Microsegmentation
+
+**1. Domain and Objective Category:**
+Domain 3: Security Architecture (Objective 3.1: Compare and contrast security architecture models)
+
+**2. The Answer and Explanation:**
+The correct answer is **Adaptive identity**.
+Adaptive identity leverages real-time contextual information (like user behavior, location, device health, and network conditions) to continuously assess risk and dynamically adjust access privileges. This is a foundational concept in the Zero Trust Control Plane, ensuring that trust is never implicit and is always evaluated based on the current context.
+
+**3. Incorrect Answers:**
+- **Implicit trust:** This is the traditional perimeter-based security model (trusting everything inside the network) that Zero Trust actively seeks to eliminate.
+- **Monitoring and logging:** While crucial for visibility and auditing in a Zero Trust environment, these are reactive and operational capabilities, not the mechanism that makes dynamic access control decisions.
+- **Microsegmentation:** This is an implementation technique used in the Zero Trust *Data Plane* to divide networks into smaller, isolated zones to prevent lateral movement. It does not refer to the identity or context-based decision-making aspect.
+
+**4. Study Tips:**
+Remember that "adaptive" means adjusting on the fly. Whenever you see a question about evaluating "context," "device security," or "network conditions" to make "dynamic decisions," think of **Adaptive identity**. Microsegmentation is for "stopping lateral movement" by chopping up the network.
+
+--------------------------------------------------------------------------------
+
+**Question:** What are the key components of the Zero Trust Control Plane's Policy Decision Point (PDP)? (Select 2 answers)
+- Policy Engine (PE)
+- Monitoring and logging
+- Policy Enforcement Point (PEP)
+- Microsegmentation
+- Policy Administrator (PA)
+
+**1. Domain and Objective Category:**
+Domain 3: Security Architecture (Objective 3.1: Compare and contrast security architecture models)
+
+**2. The Answer and Explanation:**
+The correct answers are **Policy Engine (PE)** and **Policy Administrator (PA)**.
+According to the NIST Zero Trust Architecture (NIST SP 800-207), the Control Plane contains the Policy Decision Point (PDP). The PDP is logically composed of two key components:
+- **Policy Engine (PE):** This is the ultimate decision-maker. It analyzes enterprise policy, user identity, device health, and other context to decide whether to grant access.
+- **Policy Administrator (PA):** This component is responsible for executing the decision made by the Policy Engine. It generates any necessary authentication tokens or credentials and communicates with the Policy Enforcement Point (PEP) to allow or deny the session.
+
+**3. Incorrect Answers:**
+- **Policy Enforcement Point (PEP):** This is part of the Zero Trust *Data Plane*, not the Control Plane's PDP. The PEP acts as the "bouncer," enforcing the access decisions made by the PDP.
+- **Monitoring and logging:** While data from monitoring feeds into the Policy Engine to help it make decisions, logging itself is an operational capability, not a structural component of the PDP.
+- **Microsegmentation:** This is a network security technique used in the Data Plane to divide networks into smaller zones to stop lateral movement; it is not a component of the Control Plane.
+
+**4. Study Tips:**
+Think of the PDP (Policy Decision Point) as the "brains" of Zero Trust. It consists of the **Engine** (which thinks and decides) and the **Administrator** (which gives the order). The PEP (Policy Enforcement Point) is the "muscle" or "bouncer" in the Data Plane that physically blocks or allows traffic based on those orders.
+
+--------------------------------------------------------------------------------
+
+**Question:** A process used by organizations to assess and evaluate the potential impact of disruptive incidents or disasters on their critical business functions and operations is referred to as:
+- BPA
+- BIA
+- SLE
+- BCP
+
+**1. Domain and Objective Category:**
+Domain 5: Security Program Management and Oversight (Objective 5.2: Explain elements of the risk management process)
+
+**2. The Answer and Explanation:**
+The correct answer is **BIA** (Business Impact Analysis).
+A Business Impact Analysis (BIA) is a systematic process used to determine and evaluate the potential effects of an interruption to critical business operations as a result of a disaster, accident, or emergency. It helps an organization identify its most crucial systems and functions, and quantifies the impact if they were to go down.
+
+**3. Incorrect Answers:**
+- **BPA (Business Partnership Agreement):** A legal agreement between partners detailing the relationship and their contributions, not a process for assessing the impact of disasters.
+- **SLE (Single Loss Expectancy):** A monetary value that represents how much money an organization expects to lose in a single occurrence of a specific risk. It is a metric used in risk assessment, not the holistic process of evaluating business functions.
+- **BCP (Business Continuity Plan):** This is the actual comprehensive plan that contains the instructions and procedures on how to keep the business running during a disaster. The BCP is created *using* the results of the BIA, but it isn't the assessment process itself.
+
+**4. Study Tips:**
+Think of the **BIA** as the "Analysis" where you figure out what hurts the most if it goes down (finding the critical pieces). Think of the **BCP** as the "Plan" or "Playbook" on how you actually survive the disaster. (BIA = the diagnosis, BCP = the treatment plan).
+
+--------------------------------------------------------------------------------
+
+**Question:** A hierarchical system for the creation, management, storage, distribution, and revocation of digital certificates is known as:
+- PKI
+- RA
+- PKCS
+- CA
+
+**1. Domain and Objective Category:**
+Domain 3: Security Architecture (Public Key Infrastructure concepts)
+
+**2. The Answer and Explanation:**
+The correct answer is **PKI** (Public Key Infrastructure).
+PKI is the comprehensive hierarchical system (including the hardware, software, policies, roles, and procedures) used for the creation, management, storage, distribution, and revocation of digital certificates and public-key encryption. 
+
+**3. Incorrect Answers:**
+- **CA (Certificate Authority):** This is a specific server or entity *within* the PKI that actually issues and manages the digital certificates. The CA is a component of the system, not the entire system itself.
+- **RA (Registration Authority):** This is another component *within* the PKI. Its job is to verify the identity of the user requesting a certificate before the CA is allowed to issue it.
+- **PKCS (Public Key Cryptography Standards):** These are a set of widely accepted standards (devised originally by RSA Security) that define how public key cryptography should be implemented. They are standards, not a management system.
+
+**4. Study Tips:**
+When you see words like "entire system", "framework", or "infrastructure" regarding digital certificates, think of **PKI** (Infrastructure). If the question asks for the "entity that issues or signs" the certificate, the answer is **CA** (Authority).
+
+--------------------------------------------------------------------------------
+
+**Question:** Key escrow is a cryptographic technique that enables storing copies of encryption keys with a trusted third party. A Recovery Agent (RA) is a trusted third party (an individual, entity, or system) who is authorized to assist in the retrieval of encryption keys and data on behalf of the data owner. Key escrow and RA are both used to ensure that encrypted data can be decrypted even if the data owner loses access to their encryption key. Since key escrow and RAs are both components of a single security solution, the only way to implement key escrow systems is with the use of RAs.
+- True
+- False
+
+**1. Domain and Objective Category:**
+Domain 3: Security Architecture (Public Key Infrastructure concepts)
+
+**2. The Answer and Explanation:**
+The correct answer is **False**.
+While both Key Escrow and Recovery Agents (RAs) provide a way to recover encrypted data, they are distinct concepts and mechanisms. Key Escrow involves securely storing a direct copy of the user's private encryption key with a trusted third party. A Recovery Agent (often called a Data Recovery Agent, or DRA), on the other hand, is an authorized entity that typically possesses a separate, special "master" certificate/key that is mathematically authorized to decrypt the users' files directly. You can implement Key Escrow without a Recovery Agent, and you can implement a Recovery Agent without Key Escrow.
+
+**3. Incorrect Answers:**
+- **True:** This is incorrect because Key Escrow and Recovery Agents are independent mechanisms. They are not intrinsically bound together as a single solution, and one does not require the use of the other.
+
+**4. Study Tips:**
+To keep them straight, use this analogy: 
+- **Key Escrow** is like giving a physical spare copy of your house key to a trusted neighbor to lock in their safe. 
+- A **Recovery Agent (RA)** is like the apartment building manager who has their own universal "master key" that can open your door if you get locked out.
+They solve the same problem, but they do it in completely different ways.
+
+--------------------------------------------------------------------------------
+
+**Question:** Which of the answers listed below refers to software technology designed to provide confidentiality for an entire data storage device?
+- TPM
+- FDE
+- EFS
+- HSM
+
+**1. Domain and Objective Category:**
+Domain 3: Security Architecture (Data Protection and Cryptography concepts)
+
+**2. The Answer and Explanation:**
+The correct answer is **FDE** (Full Disk Encryption).
+FDE is a technology that encrypts every single bit of data on a storage device (such as a hard drive, SSD, or USB drive). By encrypting the entire drive, it provides complete confidentiality for all data at rest on that device, ensuring that if the device is lost or stolen, the data cannot be read without the correct authentication.
+
+**3. Incorrect Answers:**
+- **TPM (Trusted Platform Module):** A dedicated hardware chip found on most modern motherboards that securely stores cryptographic keys (and is often used *by* FDE software like BitLocker). However, the TPM itself is the hardware key-storage, not the encryption technology that encrypts the entire device.
+- **EFS (Encrypting File System):** A feature of the Windows operating system that provides *file-level* or *folder-level* encryption. It only encrypts specific files you choose, rather than the *entire* storage device.
+- **HSM (Hardware Security Module):** A physical, external computing device or server appliance that safeguards and manages digital keys and provides heavy-duty cryptoprocessing. It is enterprise hardware, not the technology that encrypts a local storage device.
+
+**4. Study Tips:**
+If a question asks about encrypting an *entire* drive or device, the answer is **FDE** (Full Disk Encryption). If it asks about encrypting specific *files* or *folders*, the answer is **EFS** (Encrypting File System). Think of TPM and HSM as the physical hardware "safes" where the encryption keys are securely kept.
+
+--------------------------------------------------------------------------------
+
+**Question:** Which of the following software application tools are specifically designed for implementing encryption algorithms to secure data communication and storage? (Select 2 answers)
+- VPN
+- GPG
+- SSH
+- IPsec
+- PGP
+
+**1. Domain and Objective Category:**
+Domain 3: Security Architecture (Cryptographic tools and implementations)
+
+**2. The Answer and Explanation:**
+The correct answers are **GPG** and **PGP**.
+PGP (Pretty Good Privacy) is a software application used for encrypting, decrypting, and digitally signing files, emails, and data storage. GPG (GNU Privacy Guard) is a free, open-source software application that is a complete replacement for PGP. Both are specific software tools designed precisely for implementing encryption for secure communication (like email) and secure storage (encrypting files at rest).
+
+**3. Incorrect Answers:**
+- **VPN (Virtual Private Network):** This is a network technology used to create a secure, encrypted tunnel over an unsecured network (like the internet). It secures data in transit, but it is not a software tool used for securing data storage.
+- **SSH (Secure Shell):** This is a cryptographic network protocol used primarily for secure remote administration and file transfers. It secures data in transit, not data at rest (storage).
+- **IPsec:** This is a protocol suite used to encrypt and authenticate IP packets at the network layer. Like VPNs (which often use IPsec), it secures data in transit, not data in storage.
+
+**4. Study Tips:**
+When you see a question asking for tools that secure BOTH communication (transit) AND storage (at rest), think of **PGP** and **GPG** (used heavily for files and emails). Network protocols like VPN, SSH, and IPsec are only used for protecting data *in transit*.
+
+--------------------------------------------------------------------------------
+
+**Question:** What is the name of a network protocol that secures web traffic via SSL/TLS encryption?
+- SFTP
+- HTTPS
+- FTPS
+- SNMP
+
+**1. Domain and Objective Category:**
+Domain 2: Architecture and Design (Secure Protocols)
+
+**2. The Answer and Explanation:**
+The correct answer is **HTTPS** (Hypertext Transfer Protocol Secure).
+HTTPS is the standard protocol used to secure web traffic on the Internet. It protects the communication between a user's web browser and a website by encrypting the data using SSL (Secure Sockets Layer) or its modern successor, TLS (Transport Layer Security).
+
+**3. Incorrect Answers:**
+- **SFTP (SSH File Transfer Protocol):** While it is a secure protocol, it secures file transfers using SSH (Secure Shell), not SSL/TLS, and it is not used for web traffic.
+- **FTPS (File Transfer Protocol Secure):** This protocol does use SSL/TLS encryption, but it is specifically used for file transfers, not general web traffic.
+- **SNMP (Simple Network Management Protocol):** This is a protocol used for managing and monitoring network devices (like routers and switches). While SNMPv3 can be encrypted, it is not used for securing web traffic.
+
+**4. Study Tips:**
+Whenever you see the phrase "web traffic", immediately look for HTTP or HTTPS. If it specifically asks for "secure web traffic" or mentions "SSL/TLS", the answer is **HTTPS**. 
+*Bonus tip:* To keep the secure file protocols straight: FTPS uses SSL/TLS. SFTP uses SSH.
+
+--------------------------------------------------------------------------------
+
+**Question:** Which of the answers listed below refers to a deprecated TLS-based method for secure transmission of email messages?
+- S/MIME
+- STARTTLS
+- DKIM
+- SMTPS
+
+**1. Domain and Objective Category:**
+Domain 2: Architecture and Design (Secure Email Protocols)
+
+**2. The Answer and Explanation:**
+The correct answer is **SMTPS** (Simple Mail Transfer Protocol Secure).
+SMTPS was an early method for securing SMTP traffic using SSL/TLS encryption right from the start of the connection (known as implicit TLS, typically on port 465). It is now considered deprecated by the IETF (Internet Engineering Task Force) in favor of STARTTLS, though some legacy systems still use it.
+
+**3. Incorrect Answers:**
+- **STARTTLS:** This is the *current, modern* standard. Instead of requiring a separate, dedicated secure port like SMTPS, STARTTLS takes an existing insecure email connection on a standard port (like port 587) and explicitly upgrades it to a secure TLS connection.
+- **S/MIME (Secure/Multipurpose Internet Mail Extensions):** This is a standard used to encrypt and digitally sign the actual email *content and attachments*, not a network protocol for the transmission of the email over the wire.
+- **DKIM (DomainKeys Identified Mail):** This is an email authentication method that uses cryptographic signatures to verify the sender's domain and detect forged sender addresses (spoofing). It is not a TLS-based transmission method.
+
+**4. Study Tips:**
+If an email protocol ends in an "S" (like SMTPS), it usually refers to older "implicit" SSL/TLS connections on a dedicated port, which are mostly deprecated. **STARTTLS** is the modern way: it *starts* insecure on a normal port and explicitly upgrades the connection to TLS. 
+- SMTPS = Deprecated
+- STARTTLS = Modern
+
+--------------------------------------------------------------------------------
+
+**Question:** Which of the following answers refers to an obsolete protocol used for secure data transfer over the web?
+- SMTPS
+- SRTP
+- SHTTP
+- S/MIME
+
+**1. Domain and Objective Category:**
+Domain 2: Architecture and Design (Secure Protocols)
+
+**2. The Answer and Explanation:**
+The correct answer is **SHTTP** (Secure Hypertext Transfer Protocol).
+SHTTP was an early protocol developed in the 1990s for secure data transfer over the web, competing directly with SSL (which later evolved into TLS and HTTPS). While HTTPS encrypts the entire communication session, SHTTP encrypted individual messages. SHTTP ultimately lost the standards battle to HTTPS and is now entirely obsolete.
+
+**3. Incorrect Answers:**
+- **SMTPS (Simple Mail Transfer Protocol Secure):** This is a deprecated protocol for securing *email* transmission, not for general data transfer over the web.
+- **SRTP (Secure Real-Time Transport Protocol):** This is an active, modern protocol used for securing voice and video traffic (like VoIP and video calls), not general web traffic. It is not obsolete.
+- **S/MIME (Secure/Multipurpose Internet Mail Extensions):** This is a standard used to encrypt and digitally sign *email contents*. It is used for email, not web data transfer, and is still widely used today.
+
+**4. Study Tips:**
+Don't confuse **SHTTP** (Secure HTTP, which is obsolete) with **HTTPS** (HTTP Secure, which is the modern standard). Notice the position of the 'S'. If the 'S' is at the front (SHTTP), it's the old, dead one. If the 'S' is at the end (HTTPS), it's the modern, alive one!
+
+--------------------------------------------------------------------------------
+
+**Question:** Which of the following answers refers to a data storage device equipped with hardware-level encryption functionality?
+- HSM
+- TPM
+- EFS
+- SED
+
+**1. Domain and Objective Category:**
+Domain 3: Security Architecture (Hardware and Data Protection)
+
+**2. The Answer and Explanation:**
+The correct answer is **SED** (Self-Encrypting Drive).
+An SED is a hard disk drive (HDD) or solid-state drive (SSD) that has an encryption circuit built directly into the drive's controller. This means the *storage device itself* transparently handles all the encryption and decryption at the hardware level, taking the processing load off the computer's main CPU.
+
+**3. Incorrect Answers:**
+- **HSM (Hardware Security Module):** This is a dedicated hardware appliance or server card that manages digital keys and performs heavy-duty cryptographic operations. It is not a general data storage device for user files.
+- **TPM (Trusted Platform Module):** A dedicated hardware chip on a computer's motherboard that securely stores cryptographic keys. Like the HSM, it is a key vault, not a data storage device (like a hard drive).
+- **EFS (Encrypting File System):** This is a *software*-level encryption feature built into the Windows operating system for encrypting individual files or folders. It is software, not a piece of hardware.
+
+**4. Study Tips:**
+If the question asks for a *storage device* (like a hard drive) with built-in *hardware encryption*, the answer is **SED** (Self-Encrypting Drive). If it asks about a chip on the motherboard that *stores keys* for encryption, it's **TPM**. If it asks for an external enterprise server/appliance that manages keys, it's **HSM**.
+
+--------------------------------------------------------------------------------
+
+**Question:** Which of the following answers refers to an obsolete protocol used for secure data transfer over the web?
+- SMTPS
+- SRTP
+- SHTTP
+- S/MIME
+
+**1. Domain and Objective Category:**
+Domain 2: Architecture and Design (Secure Protocols)
+
+**2. The Answer and Explanation:**
+The correct answer is **SHTTP** (Secure Hypertext Transfer Protocol).
+SHTTP was an early protocol developed in the 1990s for secure data transfer over the web, competing directly with SSL (which later evolved into TLS and HTTPS). While HTTPS encrypts the entire communication session, SHTTP encrypted individual messages. SHTTP ultimately lost the standards battle to HTTPS and is now entirely obsolete.
+
+**3. Incorrect Answers:**
+- **SMTPS (Simple Mail Transfer Protocol Secure):** This is a deprecated protocol for securing *email* transmission, not for general data transfer over the web.
+- **SRTP (Secure Real-Time Transport Protocol):** This is an active, modern protocol used for securing voice and video traffic (like VoIP and video calls), not general web traffic. It is not obsolete.
+- **S/MIME (Secure/Multipurpose Internet Mail Extensions):** This is a standard used to encrypt and digitally sign *email contents*. It is used for email, not web data transfer, and is still widely used today.
+
+**4. Study Tips:**
+Don't confuse **SHTTP** (Secure HTTP, which is obsolete) with **HTTPS** (HTTP Secure, which is the modern standard). Notice the position of the 'S'. If the 'S' is at the front (SHTTP), it's the old, dead one. If the 'S' is at the end (HTTPS), it's the modern, alive one!
+
+--------------------------------------------------------------------------------
