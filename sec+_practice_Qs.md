@@ -625,6 +625,498 @@ Don't confuse **SHTTP** (Secure HTTP, which is obsolete) with **HTTPS** (HTTP Se
 
 --------------------------------------------------------------------------------
 
+### Question:
+Which part of IPsec provides authentication, integrity, and confidentiality?
+- SPD
+- PFS
+- AH
+- ESP
+
+**1. Domain and Objective Category:**
+Domain 3.0: Security Architecture (Secure Protocols / IPsec)
+
+**2. The Answer and Explanation:**
+**ESP (Encapsulating Security Payload)**
+ESP is the protocol within the IPsec suite that provides **confidentiality** (encryption) for the data payload, in addition to optional authentication and data integrity. Because it encrypts the actual data being sent across the network, it is the component that keeps the contents secret from eavesdroppers.
+
+**3. Incorrect Answers:**
+- **AH (Authentication Header):** A protocol within the IPsec suite that provides strong authentication and data integrity, but it does *not* provide confidentiality (meaning, it does not encrypt the data payload).
+- **SPD (Security Policy Database):** A configuration database used by an IPsec endpoint to determine what rules to apply to traffic (e.g., whether to encrypt it, bypass it, or drop it). It is a configuration component, not the protocol providing the cryptographic security.
+- **PFS (Perfect Forward Secrecy):** A cryptographic property where temporary session keys are used to protect past sessions from future compromises. It is not a structural component or protocol within the IPsec suite itself.
+
+**4. Study Tips:**
+When dealing with IPsec on the exam, remember these two primary protocols:
+- **ESP** = **E**ncryption (Confidentiality).
+- **AH** = **A**uthentication only (No Encryption).
+If the question specifically asks what provides *confidentiality/encryption*, the answer must be **ESP**.
+
+--------------------------------------------------------------------------------
+
+### Question:
+Which cryptographic solution would be best suited for low-power devices, such as IoT devices, embedded systems, and mobile devices?
+- ECC
+- DES
+- RSA
+- AES
+
+**1. Domain and Objective Category:**
+Domain 1.0: General Security Concepts (Objective 1.2: Cryptography / Public-Key Algorithms)
+
+**2. The Answer and Explanation:**
+**ECC (Elliptic-Curve Cryptography)**
+ECC is an asymmetric (public-key) encryption algorithm that provides the exact same level of cryptographic security as older algorithms (like RSA), but uses significantly smaller key sizes to do so. Because the keys are much smaller, ECC requires far less computational processing power, memory, and battery life. This makes it the absolute ideal choice for low-power devices like smartphones, IoT (Internet of Things) devices, and smart cards.
+
+**3. Incorrect Answers:**
+- **RSA:** While RSA is a highly secure asymmetric algorithm, it requires massive key sizes (e.g., 2048 or 4096-bit) to remain secure. Processing these massive keys heavily drains battery and processing power, making it poorly suited for small IoT devices.
+- **AES (Advanced Encryption Standard):** While AES is highly efficient and frequently used on mobile devices as a *symmetric* cipher, the exam specifically tests ECC as the correct answer when looking for the most efficient *asymmetric* cryptosystem tailored for low-power environments.
+- **DES (Data Encryption Standard):** An old, deprecated, and highly insecure symmetric block cipher. It should not be used on any modern device.
+
+**4. Study Tips:**
+Whenever you see the keywords **"low-power devices"**, **"IoT"**, **"smart cards"**, or **"mobile devices"** paired with a cryptography question on the exam, immediately look for **ECC (Elliptic-Curve Cryptography)**.
+
+--------------------------------------------------------------------------------
+
+### Question:
+Which of the following answers refers to a public-key cryptosystem used for digital signatures, secure key exchange, and encryption?
+- ECC
+- RSA
+- PKI
+- DSA
+
+**1. Domain and Objective Category:**
+Domain 1.0: General Security Concepts (Objective 1.2: Cryptography / Public-Key Algorithms)
+
+**2. The Answer and Explanation:**
+**RSA (Rivest-Shamir-Adleman)**
+RSA is one of the oldest and most widely used asymmetric (public-key) cryptosystems. It is a highly versatile algorithm because its underlying mathematical structure (based on the difficulty of factoring incredibly large prime numbers) allows it to natively perform all three major functions: it can be used to **encrypt data**, **exchange keys** securely, and generate **digital signatures**.
+
+**3. Incorrect Answers:**
+- **DSA (Digital Signature Algorithm):** As the name strictly implies, DSA is designed and used *only* for creating digital signatures. It cannot be used for general data encryption or key exchange.
+- **ECC (Elliptic-Curve Cryptography):** While ECC is a powerful category of public-key cryptography (often used for key exchange via ECDHE and signatures via ECDSA), standard textbook definitions usually point to RSA as the classic, all-in-one algorithm that historically handled all three capabilities directly in its base form.
+- **PKI (Public Key Infrastructure):** This is not a cryptosystem or algorithm itself. Rather, it is the entire overarching framework (the servers, Certificate Authorities, policies, and software) used to manage, create, store, and distribute digital certificates and public keys.
+
+**4. Study Tips:**
+- **RSA** = The "all-rounder." It does Encryption, Key Exchange, AND Digital Signatures.
+- **DSA** = Digital Signatures **ONLY**.
+- **PKI** = The *management system/infrastructure* for keys, not the math algorithm itself.
+
+--------------------------------------------------------------------------------
+
+### Question:
+Which of the answers listed below refers to a solution designed to strengthen the security of session keys?
+- ECB
+- PFS
+- EFS
+- PFX
+
+**1. Domain and Objective Category:**
+Domain 1.0: General Security Concepts (Objective 1.2: Cryptography / Session Keys)
+
+**2. The Answer and Explanation:**
+**PFS (Perfect Forward Secrecy)**
+PFS is a cryptographic property designed to strengthen the security of session keys by ensuring that a new, random session key is generated for every single session. Because these session keys are temporary (ephemeral) and are not mathematically derived from a long-term private key, a compromise of the server's long-term private key in the future will not allow an attacker to decrypt any past recorded sessions.
+
+**3. Incorrect Answers:**
+- **ECB (Electronic Codebook):** A very basic, legacy, and highly insecure mode of operation for block ciphers. It is known for leaving visible patterns in encrypted data and is definitely not a solution for strengthening session keys.
+- **EFS (Encrypting File System):** A feature built directly into the Microsoft Windows operating system used for encrypting individual files or folders on a hard drive. It is a file-level encryption tool, not a session key security feature.
+- **PFX (Personal Information Exchange):** A file format (also known as PKCS #12) used to securely store and transfer cryptographic objects, like certificates and private keys, in a single password-protected file. It is a file format, not a cryptographic property.
+
+**4. Study Tips:**
+- When you see **"strengthen the security of session keys"** or **"protecting past communications"**, immediately think of **PFS (Perfect Forward Secrecy)**.
+- PFS is achieved by using **Ephemeral** keys (like DHE or ECDHE)!
+
+--------------------------------------------------------------------------------
+
+### Question:
+Which of the following answers refers to a protocol used to set up secure connections and exchange of cryptographic keys in IPsec VPNs?
+- SSL
+- IKE
+- ESP
+- DHE
+
+**1. Domain and Objective Category:**
+Domain 3.0: Security Architecture (Secure Protocols / IPsec)
+
+**2. The Answer and Explanation:**
+**IKE (Internet Key Exchange)**
+IKE is the protocol used within the IPsec suite to set up a secure, authenticated communications channel (known as a Security Association, or SA) between two parties. It is responsible for the initial negotiation and exchange of cryptographic keys required to establish the IPsec VPN tunnel.
+
+**3. Incorrect Answers:**
+- **SSL (Secure Sockets Layer):** An older, deprecated protocol used to secure web traffic over the Internet. It is not used to set up IPsec VPNs.
+- **ESP (Encapsulating Security Payload):** A core protocol within the IPsec suite, but its job is to provide the actual encryption and confidentiality of the data payload being transmitted, *after* the connection is established. It does not handle the initial setup and key exchange.
+- **DHE (Diffie-Hellman Ephemeral):** A cryptographic algorithm used to generate temporary session keys. While IKE uses Diffie-Hellman mathematics behind the scenes to securely trade keys, DHE itself is just the math algorithm, not the overarching protocol (IKE) that manages the IPsec VPN setup.
+
+**4. Study Tips:**
+- **IKE = Internet Key Exchange.** If a question mentions exchanging keys specifically for **IPsec**, the answer is almost always **IKE**.
+- Think of **IKE** as the handshake that agrees on the rules, and **ESP** as the armored truck that actually carries the encrypted data based on those rules.
+
+--------------------------------------------------------------------------------
+
+### Question:
+Which of the answers listed below refers to a key exchange protocol that generates temporary keys for each session, providing forward secrecy to protect past and future communications?
+- PFS
+- SHA
+- PGP
+- DHE
+
+**1. Domain and Objective Category:**
+Domain 1.0: General Security Concepts (Objective 1.2: Cryptography / Key Exchange)
+
+**2. The Answer and Explanation:**
+**DHE (Diffie-Hellman Ephemeral)**
+DHE is a key exchange protocol that creates a temporary, short-lived (ephemeral) key for each session. Because a brand new, unique key is used for every single session, it provides Perfect Forward Secrecy (PFS). This means that if an attacker records your encrypted traffic today and manages to compromise your server's long-term private key next year, they *still* cannot decrypt the recorded traffic because the temporary session keys were thrown away.
+
+**3. Incorrect Answers:**
+- **PFS (Perfect Forward Secrecy):** This is the tricky distractor! PFS is a cryptographic *property* or *feature* provided by certain protocols (like DHE). However, PFS is not the name of the key exchange protocol itself.
+- **SHA (Secure Hash Algorithm):** A family of cryptographic hashing algorithms used for data integrity (creating digital fingerprints), not for key exchange.
+- **PGP (Pretty Good Privacy):** A data encryption and decryption software/protocol used primarily for securing files and email. It is not an ephemeral session key exchange protocol.
+
+**4. Study Tips:**
+- The **"E"** in DHE and ECDHE stands for **"Ephemeral"**, which means "temporary" or "short-lived."
+- **Ephemeral keys** are the magic ingredient that provides **Perfect Forward Secrecy (PFS)**!
+
+--------------------------------------------------------------------------------
+
+### Question:
+Which of the answers listed below refers to a shared secret authentication method used in WPA, WPA2, and EAP?
+- PSK
+- 802.1X
+- SAE
+- TKIP
+
+**1. Domain and Objective Category:**
+Domain 3.0: Security Architecture (Wireless Security Settings / Authentication Methods)
+
+**2. The Answer and Explanation:**
+**PSK (Pre-Shared Key)**
+A Pre-Shared Key (PSK) is a shared secret (a password or passphrase) that is previously shared between the two communicating parties using some secure channel before it needs to be used. In WPA and WPA2 "Personal" modes, this is the standard Wi-Fi password that everyone types in to connect to the network.
+
+**3. Incorrect Answers:**
+- **802.1X:** An IEEE standard for port-based network access control (PNAC). It provides an authentication mechanism to devices wishing to attach to a LAN or WLAN. It is used in WPA "Enterprise" mode and relies on a central authentication server (like RADIUS), rather than a single shared secret password for everyone.
+- **SAE (Simultaneous Authentication of Equals):** A highly secure key exchange protocol used in WPA3. It replaces the older PSK method to provide much stronger protection against offline dictionary attacks.
+- **TKIP (Temporal Key Integrity Protocol):** This is an older *encryption* protocol used primarily with the original WPA standard. It encrypts the traffic, but it is not the *authentication* method itself.
+
+**4. Study Tips:**
+- **PSK (Pre-Shared Key):** Think of this as your normal home Wi-Fi password. Everyone "shares" the same "key" before they can connect.
+- **802.1X (Enterprise):** Think of this as corporate Wi-Fi. You don't use a shared password; you log in using your own unique username and password that gets verified by a central server.
+- **SAE:** The new, better version of PSK used in WPA3.
+
+--------------------------------------------------------------------------------
+
+### Question:
+The term "KEK" refers to a type of cryptographic key often used in key management systems to add an additional layer of security when encrypting and decrypting other cryptographic keys.
+- True
+- False
+
+**1. Domain and Objective Category:**
+Domain 1.0: General Security Concepts (Objective 1.2: Cryptography / Key Management)
+
+**2. The Answer and Explanation:**
+**True**
+KEK stands for **Key Encryption Key**. In cryptography and key management systems, it is extremely dangerous to leave your standard data keys lying around in plaintext. Therefore, a KEK is a specialized key whose sole purpose is to encrypt and decrypt *other* cryptographic keys (typically called DEKs, or Data Encryption Keys) to protect them while they are stored or being transmitted.
+
+**3. Incorrect Answers:**
+- **False:** The statement is completely accurate in describing the purpose of a Key Encryption Key.
+
+**4. Study Tips:**
+Think of a **KEK (Key Encryption Key)** as the heavily guarded "master key" for a security guard's lockbox. You use the master KEK to unlock the box, which then gives you access to all the smaller **DEKs (Data Encryption Keys)** that are used to actually unlock the individual doors/data.
+
+--------------------------------------------------------------------------------
+
+### Question:
+Which of the algorithms listed below are not symmetric ciphers? (Select 3 answers)
+- AES
+- DES
+- DHE
+- ECC
+- IDEA
+- RC4
+- RSA
+
+**1. Domain and Objective Category:**
+Domain 1.0: General Security Concepts (Objective 1.2: Cryptography / Symmetric vs. Asymmetric)
+
+**2. The Answer and Explanation:**
+**DHE, ECC, RSA**
+These three algorithms are NOT symmetric ciphers; they are **asymmetric (public-key)** algorithms or key-exchange protocols:
+- **DHE (Diffie-Hellman Ephemeral):** A cryptographic protocol that allows two parties to securely establish a shared secret key over an insecure network without ever sending the actual key.
+- **ECC (Elliptic-Curve Cryptography):** A highly efficient asymmetric (public-key) encryption algorithm that uses the algebraic structure of elliptic curves to provide strong security with very small key sizes.
+- **RSA (Rivest-Shamir-Adleman):** The most common asymmetric (public-key) algorithm used globally for secure data transmission and digital signatures. It relies on the mathematical difficulty of factoring large prime numbers.
+
+**3. Incorrect Answers:**
+The remaining choices are all **symmetric** ciphers (they use a single shared key for both encryption and decryption):
+- **AES (Advanced Encryption Standard):** The current gold standard for symmetric encryption worldwide.
+- **DES (Data Encryption Standard):** An old, deprecated symmetric block cipher.
+- **IDEA (International Data Encryption Algorithm):** A symmetric block cipher developed in the 90s as a replacement for DES.
+- **RC4 (Rivest Cipher 4):** An old, deprecated symmetric stream cipher.
+
+**4. Study Tips:**
+For the exam, it is much easier to just memorize the **asymmetric** algorithms because there are fewer of them. 
+If it is **RSA**, **ECC**, **DSA**, or anything related to **Diffie-Hellman (DH, DHE, ECDHE)**, it is **Asymmetric**. 
+Almost everything else (AES, DES, 3DES, RC4, Twofish, Blowfish, IDEA) is Symmetric!
+
+--------------------------------------------------------------------------------
+
+### Question:
+Which of the following answers refer(s) to deprecated/insecure encryption protocols and cryptographic hash functions? (Select all that apply)
+- DES
+- AES-256
+- MD5
+- ECC
+- SHA-1
+- SSL
+- RC4
+
+**1. Domain and Objective Category:**
+Domain 1.0: General Security Concepts (Objective 1.2: Cryptography)
+
+**2. The Answer and Explanation:**
+**DES, MD5, SHA-1, SSL, RC4**
+These five algorithms and protocols are considered deprecated (obsolete) and insecure:
+- **DES (Data Encryption Standard):** An old symmetric encryption algorithm that uses a tiny 56-bit key, which can easily be cracked via brute force by modern computers in minutes.
+- **MD5 (Message Digest 5):** An old hashing algorithm that suffers from severe collision vulnerabilities (hackers can create two different files that produce the exact same hash).
+- **SHA-1 (Secure Hash Algorithm 1):** An older hashing algorithm that is also deprecated due to collision vulnerabilities, much like MD5.
+- **SSL (Secure Sockets Layer):** An obsolete cryptographic protocol for web traffic that suffers from numerous flaws (like the POODLE vulnerability). It has been completely replaced by TLS.
+- **RC4 (Rivest Cipher 4):** A stream cipher that was heavily used in old protocols like WEP, but is now deprecated due to multiple severe cryptographic vulnerabilities.
+
+**3. Incorrect Answers:**
+- **AES-256 (Advanced Encryption Standard):** This is the current, modern, gold-standard symmetric encryption algorithm. It is highly secure and widely used around the world.
+- **ECC (Elliptic-Curve Cryptography):** A modern, highly secure and efficient form of public-key (asymmetric) cryptography. It provides incredibly strong security with very small key sizes, making it perfect for mobile devices.
+
+**4. Study Tips:**
+For the exam, immediately flag these terms as "BAD" or "INSECURE":
+- Hashes: **MD5, SHA-1**
+- Encryption: **DES, 3DES, RC4**
+- Web/Wireless Protocols: **SSL, WEP, TKIP**
+
+--------------------------------------------------------------------------------
+
+### Question:
+An encryption protocol primarily used in Wi-Fi networks implementing the WPA2 security standard is called:
+- TKIP
+- CCMP
+- SSL
+- IPsec
+
+**1. Domain and Objective Category:**
+Domain 3.0: Security Architecture (Wireless Security Settings / Secure Protocols)
+
+**2. The Answer and Explanation:**
+**CCMP (Counter Mode with Cipher Block Chaining Message Authentication Code Protocol)**
+CCMP is the standard encryption protocol used in the WPA2 (Wi-Fi Protected Access 2) security standard. It utilizes the highly secure AES (Advanced Encryption Standard) cipher to provide strong data confidentiality, authentication, and access control for wireless networks, replacing the older and much weaker TKIP protocol.
+
+**3. Incorrect Answers:**
+- **TKIP (Temporal Key Integrity Protocol):** The older encryption protocol used primarily with the original WPA (not WPA2) security standard. It was a stopgap measure designed to replace the highly vulnerable WEP protocol on old hardware, but TKIP itself is now considered deprecated and insecure.
+- **SSL (Secure Sockets Layer):** An obsolete cryptographic protocol designed for secure web traffic over the Internet (replaced by TLS), not for encrypting local Wi-Fi airwaves.
+- **IPsec (Internet Protocol Security):** A suite of protocols used to secure IP communications (like VPNs) over a network, not the layer 2 protocol used to encrypt local Wi-Fi signals in WPA2.
+
+**4. Study Tips:**
+Memorize these Wi-Fi security pairings for the exam:
+- **WPA** uses **TKIP** (Old and insecure).
+- **WPA2** uses **CCMP** and **AES** (Strong standard).
+- **WPA3** uses **SAE** (Simultaneous Authentication of Equals).
+
+--------------------------------------------------------------------------------
+
+### Question:
+Which protocol enables secure, real-time delivery of audio and video over an IP network?
+- S/MIME
+- RTP
+- SIP
+- SRTP
+
+**1. Domain and Objective Category:**
+Domain 3.0: Security Architecture (Secure Protocols)
+
+**2. The Answer and Explanation:**
+**SRTP (Secure Real-Time Transport Protocol)**
+SRTP is an extension of the RTP (Real-Time Transport Protocol) that adds security features such as encryption, message authentication, and integrity. It is specifically designed to ensure that real-time audio and video communications (such as VoIP calls or video conferencing) are secure and protected against interception and tampering.
+
+**3. Incorrect Answers:**
+- **S/MIME (Secure/Multipurpose Internet Mail Extensions):** A protocol used for encrypting and digitally signing email messages, not for securing real-time audio or video streams.
+- **RTP (Real-Time Transport Protocol):** The standard protocol for delivering audio and video over IP networks, but it does *not* natively include security features (it transmits unencrypted data). 
+- **SIP (Session Initiation Protocol):** A signaling protocol used to initiate, maintain, and terminate real-time sessions (like VoIP calls). While essential for setting up the call, SIP only handles the call setup and signaling, not the secure delivery of the actual audio/video media stream itself.
+
+**4. Study Tips:**
+When you see a question about the **"real-time delivery of audio and video"**, think **RTP**.
+When the question asks for the **"secure"** version of that delivery, simply add an 'S' to the front: **Secure + RTP = SRTP**.
+
+--------------------------------------------------------------------------------
+
+### Question:
+A system that uses public network (such as the Internet) as a means for creating private encrypted connections between remote locations is referred to as:
+- WWAN
+- VPN
+- PAN
+- VLAN
+
+**1. Domain and Objective Category:**
+Domain 3.0: Security Architecture (Architecture Models / Secure Protocols)
+
+**2. The Answer and Explanation:**
+**VPN (Virtual Private Network)**
+A Virtual Private Network (VPN) uses a public network (like the Internet) to create a secure, private, encrypted "tunnel" between remote locations or between a remote user and a corporate network. This effectively extends a private corporate network across a public one, ensuring that intercepted traffic cannot be easily read.
+
+**3. Incorrect Answers:**
+- **WWAN (Wireless Wide Area Network):** A wireless network that covers a large geographic area (such as mobile/cellular networks like 4G or 5G). While it provides broad connectivity, it is not inherently defined as a system for creating private encrypted connections between remote locations.
+- **PAN (Personal Area Network):** A small, very short-range network used for data transmission among personal devices (for example, Bluetooth connecting a smartphone to wireless headphones).
+- **VLAN (Virtual Local Area Network):** A logical grouping of devices on the same local network (LAN) to segment traffic, regardless of physical location within that LAN. It operates locally within a switch/network, not over a public internet connection to remote locations.
+
+**4. Study Tips:**
+- **VPN** = **Virtual** Private Network (it acts like a private network, but uses public wires).
+- Whenever a question mentions creating an **encrypted connection/tunnel over a public network (the Internet)**, the answer is almost always a VPN.
+
+--------------------------------------------------------------------------------
+
+### Question:
+Which of the answers listed below refers to a suite of protocols and technologies providing encryption, authentication, and data integrity for network traffic?
+- TLS
+- SSH
+- IPsec
+- VPN
+
+**1. Domain and Objective Category:**
+Domain 3.0: Security Architecture (Secure Protocols)
+
+**2. The Answer and Explanation:**
+**IPsec (Internet Protocol Security)**
+IPsec is not a single protocol, but rather a comprehensive **suite of protocols** used to protect data and secure IP communications at the network layer. It accomplishes this by authenticating and encrypting each IP packet of a communication session. It primarily relies on two core protocols: Authentication Header (AH) for data integrity/authentication, and Encapsulating Security Payload (ESP) for encryption/confidentiality.
+
+**3. Incorrect Answers:**
+- **TLS (Transport Layer Security):** A cryptographic protocol designed to provide communications security over a computer network (typically used to secure web browsing via HTTPS). It operates at the transport layer, and while it provides encryption, it is generally considered a single protocol rather than a broad "suite of protocols" for general network traffic like IPsec.
+- **SSH (Secure Shell):** A specific protocol used primarily for secure command-line access and remote administration, not a suite of protocols for general network traffic.
+- **VPN (Virtual Private Network):** A technology or concept that extends a private network across a public network. A VPN is the overarching connection type, not the protocol suite itself. (Note: VPNs very frequently *use* the IPsec protocol suite to create that secure connection).
+
+**4. Study Tips:**
+When you see the keywords **"suite of protocols"** used for securing network traffic, immediately look for **IPsec**.
+Remember its two main components:
+- **AH (Authentication Header)** = Authentication & Integrity.
+- **ESP (Encapsulating Security Payload)** = Encryption & Confidentiality.
+
+--------------------------------------------------------------------------------
+
+### Question:
+A type of cryptographic network protocol for secure data communication, remote command-line login, remote command execution, and other secure network services between two networked computers is known as:
+- RDP
+- SSH
+- Telnet
+- SCP
+
+**1. Domain and Objective Category:**
+Domain 3.0: Security Architecture (Secure Protocols)
+
+**2. The Answer and Explanation:**
+**SSH (Secure Shell)**
+SSH is a cryptographic network protocol used to secure data communication, provide remote command-line login, and execute remote commands over an unsecured network. It typically operates on port 22 and provides strong encryption and authentication, replacing older, insecure protocols.
+
+**3. Incorrect Answers:**
+- **RDP (Remote Desktop Protocol):** A proprietary protocol developed by Microsoft that provides a user with a graphical interface (GUI) to connect to another computer. It is not primarily for command-line login.
+- **Telnet:** An older network protocol used for remote command-line login, but it transmits all data in cleartext (unencrypted), so it provides no security or cryptographic protections.
+- **SCP (Secure Copy Protocol):** A network protocol that supports file transfers between hosts on a network. While it uses SSH for data transfer and authentication (and thus is secure), it is specifically designed for copying and transferring files, not as a general protocol for remote command-line login.
+
+**4. Study Tips:**
+- **SSH** = Secure Shell (Secure command-line access).
+- **Telnet** = Telecommunications Network (Insecure, cleartext command-line access).
+- **RDP** = Remote Desktop Protocol (Graphical UI access).
+- **SCP** = Secure Copy Protocol (Securely copying files).
+
+--------------------------------------------------------------------------------
+
+### Question:
+What is a honeytoken?
+- A decoy file that is designed to attract attackers
+- A unique identifier assigned to a honeyfile
+- A decoy system that is designed to lure potential attackers
+- A unique identifier that is designed to track attackers
+
+**1. Domain and Objective Category:**
+Domain 4.0: Security Operations (Deception and disruption technology)
+
+**2. The Answer and Explanation:**
+**A unique identifier that is designed to track attackers**
+A honeytoken is a specific piece of fabricated data—such as a fake credit card number, a dummy database record, or a fake API key/unique identifier—that is intentionally left within a system. If this data is ever accessed, used, or moved, it acts as a digital tripwire, alerting defenders and allowing them to track the unauthorized user's actions.
+
+**3. Incorrect Answers:**
+- **A decoy file that is designed to attract attackers:** This describes a **honeyfile**, which is an entire file (like a word document) used as a decoy, not just a specific piece of data or token.
+- **A unique identifier assigned to a honeyfile:** Honeytokens are their own standalone pieces of decoy data; they are not inherently just ID numbers attached to honeyfiles.
+- **A decoy system that is designed to lure potential attackers:** This describes a **honeypot**, which is an entire system or server designed as a decoy, not a single token of data.
+
+**4. Study Tips:**
+Match the terms to their scale:
+- **Honeypot** = A whole fake *system/server*.
+- **Honeyfile** = A whole fake *file*.
+- **Honeytoken** = A small piece of fake *data* (like a token or identifier).
+
+--------------------------------------------------------------------------------
+
+### Question:
+A honeyfile can be any type of file (e.g., a document, email message, image, or video file) containing real user data intentionally placed within a network or system to attract potential attackers or unauthorized users.
+- True
+- False
+
+**1. Domain and Objective Category:**
+Domain 4.0: Security Operations (Deception and disruption technology)
+
+**2. The Answer and Explanation:**
+**False**
+While a honeyfile is indeed an intentionally placed file meant to attract and detect attackers, it must **never contain real user data**. A honeyfile contains fake, fabricated, or decoy data (such as fake passwords, fake financial records, or fake PII). Placing real, sensitive user data in a decoy file would put actual data at risk and cause a severe security and privacy violation.
+
+**3. Incorrect Answers:**
+- **True:** The statement is false purely because of the phrase "containing real user data."
+
+**4. Study Tips:**
+Honey = Fake/Decoy. Never use real data in a honeypot, honeyfile, honeynet, or honeytoken!
+
+--------------------------------------------------------------------------------
+
+### Question:
+The term "Zero Trust security" refers to a cybersecurity model that eliminates implicit trust from networks and requires all users and devices to be continuously verified before being granted access to resources. The implementation of the Zero Trust security involves two distinct components: a Data Plane, responsible for defining and managing security policies, and a Control Plane, responsible for enforcing the security policies established by the Data Plane.
+- True
+- False
+
+**1. Domain and Objective Category:**
+Domain 3.0: Security Architecture (Zero Trust Architecture)
+
+**2. The Answer and Explanation:**
+**False**
+The definitions of the Data Plane and Control Plane are backward in the question. According to the NIST Zero Trust Architecture, the **Control Plane** is the "brains" of the operation—it is responsible for defining, managing, and deciding the security policies (Policy Decision Point). The **Data Plane** is the "muscle"—it is responsible for actually enforcing those policies and handling the network traffic (Policy Enforcement Point). 
+
+**3. Incorrect Answers:**
+- **True:** The statement is false because it swaps the roles of the Control Plane and Data Plane.
+
+**4. Study Tips:**
+Think of the Zero Trust planes like a human body:
+- **Control Plane** = The Brains (Defines rules, makes decisions).
+- **Data Plane** = The Muscle/Bouncer (Enforces the rules, moves the data).
+
+--------------------------------------------------------------------------------
+
+### Question:
+What is the name of a network protocol that enables secure file transfer over SSH?
+- TFTP
+- SFTP
+- Telnet
+- FTPS
+
+**1. Domain and Objective Category:**
+Domain 3.0: Security Architecture (Secure Protocols)
+
+**2. The Answer and Explanation:**
+**SFTP** (SSH File Transfer Protocol / Secure File Transfer Protocol)
+SFTP is a network protocol that provides file access, file transfer, and file management capabilities. It runs over the Secure Shell (SSH) protocol, which ensures that both the commands (like authentication) and the actual data being transferred are encrypted and secure from interception.
+
+**3. Incorrect Answers:**
+- **TFTP (Trivial File Transfer Protocol):** A very simple file transfer protocol that transmits data in cleartext (unencrypted) and does not require any authentication. It provides no security.
+- **Telnet:** A legacy network protocol used for remote terminal access, not file transfer. It transmits all data, including usernames and passwords, in cleartext, making it highly insecure.
+- **FTPS (File Transfer Protocol Secure):** An extension to the standard FTP protocol that adds encryption. However, FTPS uses SSL/TLS for encryption, whereas SFTP uses SSH. 
+
+**4. Study Tips:**
+To easily remember the difference between the two secure file transfer protocols:
+- **SFTP** starts with **S**, just like **SSH**.
+- **FTPS** ends with **S**, just like **TLS/SSL**.
+
+--------------------------------------------------------------------------------
+
 **Question:** Which of the following answers refers to a data storage device equipped with hardware-level encryption functionality?
 - HSM
 - TPM
