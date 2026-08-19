@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "sec+_practice_Qs.md",
+                "file": "AGY.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "sec+_practice_Qs"
+              "title": "AGY"
             }
           }
         ]
@@ -188,10 +188,10 @@
       "bases:Create new base": false
     }
   },
-  "active": "ce549ba05e5f221d",
+  "active": "79af03857ba79f54",
   "lastOpenFiles": [
+    "CompTIA-Security-Plus-SY0-701-Exam-Objectives.pdf",
     "summaries.md",
-    "sec+_practice_Qs.md",
-    "CompTIA-Security-Plus-SY0-701-Exam-Objectives.pdf"
+    "sec+_practice_Qs.md"
   ]
 }

@@ -115,3 +115,22 @@
 * **Review Exam Objectives:** Continue mapping questions to specific domains and objectives to ensure comprehensive coverage.
 
 --------------------------------------------------------------------------------
+**Session Summary - 2026-08-19T13:43:12-07:00**
+
+### Work Accomplished
+During this study session, we focused heavily on **CompTIA Security+ SY0-701 Domain 1: General Security Concepts (Objective 1.4: Cryptography and PKI)**. We successfully covered and clarified several foundational and complex topics:
+- **Hashing Algorithms:** Differentiated between secure hashes (SHA families), obsolete hashes (MD5), non-cryptographic hashes (CRC), and message authentication codes (HMAC).
+- **Encryption & Signatures:** Explored how hashes support digital signatures, and how hybrid encryption provides confidentiality without sacrificing speed. We also reviewed asymmetric algorithms like RSA, DSA, and ECDSA.
+- **Password Security:** Clarified the differences between HMAC, Salts, and Peppers, and confirmed the purpose of key stretching to prevent brute-force attacks.
+- **Blockchain:** Defined open public ledgers, P2P decentralization, consensus mechanisms, and non-cryptocurrency use cases.
+- **PKI (Public Key Infrastructure):** Distinguished between PKCS standards, P12 certificate formats, and the distinct roles of the Registration Authority (RA) versus the Certificate Authority (CA).
+
+### Files Modified
+- `sec+_practice_Qs.md`: Continuously appended with 10 detailed practice questions, including domain categorization, correct/incorrect answer breakdowns, and memorable study tips.
+
+### Next Steps
+- Continue tackling practice questions in Domain 2 (Threats, Vulnerabilities, and Mitigations) or Domain 3 (Security Architecture).
+- Review the `sec+_practice_Qs.md` study guide to reinforce the concepts and acronyms discussed today.
+
+--------------------------------------------------------------------------------
+

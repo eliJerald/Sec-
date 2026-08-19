@@ -1162,3 +1162,301 @@ SHTTP was an early protocol developed in the 1990s for secure data transfer over
 Don't confuse **SHTTP** (Secure HTTP, which is obsolete) with **HTTPS** (HTTP Secure, which is the modern standard). Notice the position of the 'S'. If the 'S' is at the front (SHTTP), it's the old, dead one. If the 'S' is at the end (HTTPS), it's the modern, alive one!
 
 --------------------------------------------------------------------------------
+**Question:**
+Which of the following answers refers to a family of cryptographic hash functions designed for various security-related applications, including digital signatures, password storage, secure communications, and data integrity verification?
+- RSA
+- AES
+- PKCS
+- SHA
+
+**1. Domain and Objective Category:**
+Domain 1: General Security Concepts (Objective 1.4: Explain the concepts of cryptography)
+
+**2. The Answer and Explanation:**
+**SHA (Secure Hash Algorithm)**
+SHA is a family of cryptographic hash functions (such as SHA-1, SHA-2, and SHA-3) published by the National Institute of Standards and Technology (NIST). Hash functions take input data of any size and produce a fixed-size output (a hash value or digest). They are primarily used to ensure data integrity, securely store passwords, and support digital signatures.
+
+**3. Incorrect Answers:**
+- **RSA (Rivest-Shamir-Adleman):** This is an asymmetric encryption algorithm that uses a pair of keys (public and private). It is used for securing data transmission and digital signatures, but it is an encryption algorithm, not a hash function.
+- **AES (Advanced Encryption Standard):** This is a symmetric encryption algorithm widely used to encrypt and decrypt data to keep it confidential. It is not a hash function.
+- **PKCS (Public-Key Cryptography Standards):** This refers to a family of standards created by RSA Security to promote the use of public-key cryptography techniques, not a specific algorithm itself.
+
+**4. Study Tips:**
+An easy way to remember this is to look at the name! The **"H"** in S**H**A stands for **H**ash. 
+- **SHA** = **H**ash (Used for Data Integrity)
+- **AES** = Symmetric Encryption (Used for Data Confidentiality)
+- **RSA** = Asymmetric Encryption (Used for Key Exchange/Digital Signatures)
+
+--------------------------------------------------------------------------------
+
+**Question:**
+Which of the hash functions listed below offers the highest level of security?
+- MD5
+- SHA-3
+- RIPEMD-160
+- HMAC
+
+**1. Domain and Objective Category:**
+Domain 1: General Security Concepts (Objective 1.4: Explain the concepts of cryptography)
+
+**2. The Answer and Explanation:**
+**SHA-3**
+SHA-3 (Secure Hash Algorithm 3) is the newest member of the Secure Hash Algorithm family standard published by NIST. It uses a completely different internal structure compared to older algorithms, making it highly secure and resistant to collision attacks.
+
+**3. Incorrect Answers:**
+- **MD5 (Message Digest 5):** This algorithm is considered obsolete and cryptographically broken. It is highly vulnerable to collision attacks (where two different inputs produce the same hash) and should never be used for high-security applications.
+- **RIPEMD-160:** While more secure than MD5, this is an older 160-bit hash function. It is generally considered less secure and is less widely adopted than the modern SHA-2 or SHA-3 families.
+- **HMAC (Hash-based Message Authentication Code):** HMAC is not a standalone hashing algorithm. It is a technique that combines a cryptographic hash function (like SHA-256 or MD5) with a secret cryptographic key. Its security entirely depends on the underlying hash function it is paired with.
+
+**4. Study Tips:**
+When you see numbers after algorithms like SHA, bigger usually means better/newer! 
+- **MD5** = Old and broken (avoid for security).
+- **HMAC** = Needs a secret key + a hash function (it's a process/framework, not a standalone hash algorithm).
+- **SHA-3** = The newest and strongest hash family tested on the exam.
+
+--------------------------------------------------------------------------------
+
+**Question:**
+Which of the following combines a cryptographic hash function with a secret key to provide a means of verifying both the authenticity and integrity of a message or data?
+- MD5
+- DSA
+- HMAC
+- DES
+
+**1. Domain and Objective Category:**
+Domain 1: General Security Concepts (Objective 1.4: Explain the concepts of cryptography)
+
+**2. The Answer and Explanation:**
+**HMAC (Hash-based Message Authentication Code)**
+HMAC is a specific type of message authentication code that combines a standard cryptographic hash function (such as SHA-256 or MD5) with a secret cryptographic key. Because it requires a secret key that is only known by the sender and receiver, it verifies the *authenticity* of the sender, while the hash function verifies the *integrity* of the data.
+
+**3. Incorrect Answers:**
+- **MD5 (Message Digest 5):** This is a standalone hashing algorithm. While it verifies data integrity, it does not use a secret key on its own, so it cannot verify authenticity.
+- **DSA (Digital Signature Algorithm):** This is a federal standard for digital signatures. While it verifies both integrity and authenticity, it uses *asymmetric* cryptography (public/private key pairs), not a hash combined with a single secret key.
+- **DES (Data Encryption Standard):** This is a very old, symmetric encryption algorithm used to provide confidentiality, not a hashing algorithm or message authentication code. 
+
+**4. Study Tips:**
+The answer is right in the acronym! 
+- **H** = **H**ash-based (Uses a hash function)
+- **MAC** = **M**essage **A**uthentication **C**ode (Uses a secret key to authenticate)
+If the exam mentions combining a hash and a secret key, **HMAC** is your answer.
+
+--------------------------------------------------------------------------------
+
+**Question:**
+Which of the answers listed below refers to a non-cryptographic hash function often used for error-checking purposes?
+- MD5
+- CRC
+- SHA
+- RIPEMD
+
+**1. Domain and Objective Category:**
+Domain 1: General Security Concepts (Objective 1.4: Explain the concepts of cryptography)
+
+**2. The Answer and Explanation:**
+**CRC (Cyclic Redundancy Check)**
+A CRC is an error-detecting code (a non-cryptographic hash function) commonly used in digital networks and storage devices to detect accidental changes to raw data. For example, it checks if a file got corrupted while downloading or transferring to a USB drive. Because it is non-cryptographic, it provides no real security against a malicious attacker who intentionally tampers with the data.
+
+**3. Incorrect Answers:**
+- **MD5 (Message Digest 5):** This is a cryptographic hash function. Even though it is considered obsolete and vulnerable today, it was designed for security, not just simple error-checking.
+- **SHA (Secure Hash Algorithm):** This is a highly secure family of cryptographic hash functions designed for digital signatures, password storage, and data integrity verification.
+- **RIPEMD:** This is also a cryptographic hash function designed specifically for security purposes.
+
+**4. Study Tips:**
+Think of **CRC** like a simple spell-check for computers. It catches accidental typos (errors during transfer), but it won't stop a hacker who is actively trying to trick it. 
+- **CRC** = Accidental Error Checking
+- **MD5 / SHA / RIPEMD** = Cryptographic Security
+
+--------------------------------------------------------------------------------
+
+**Question:**
+Which of the following answers refers to a type of additional input that increases password complexity and provides better protection against brute-force, dictionary, and rainbow table attacks?
+- Seed
+- IV
+- Salt
+- Shim
+
+**1. Domain and Objective Category:**
+Domain 1: General Security Concepts (Objective 1.4: Explain the concepts of cryptography)
+
+**2. The Answer and Explanation:**
+**Salt**
+A salt is a string of random data that is added to a password before it goes through a hashing algorithm. By adding this random data, it ensures that the resulting hash is completely unique, even if two users happen to choose the exact same password. This completely neutralizes rainbow table attacks (pre-computed lists of password hashes) and makes dictionary and brute-force attacks significantly harder.
+
+**3. Incorrect Answers:**
+- **Seed:** A seed is a starting number used by algorithms that generate pseudo-random numbers. While it involves randomness, it is not the specific security control used to protect password hashes.
+- **IV (Initialization Vector):** An IV is a random or pseudo-random value used in symmetric encryption algorithms (block ciphers) to ensure that the same plaintext encrypted multiple times results in different ciphertexts. It is used for *encryption*, whereas a salt is used for *hashing*.
+- **Shim:** A shim is a piece of software code that sits between two components and intercepts API calls, often used for maintaining backwards compatibility with older software or, maliciously, by malware to intercept data. It has nothing to do with cryptography.
+
+**4. Study Tips:**
+Just like we discussed earlier, think of a **Salt** as adding a unique "flavor" to every single password in a database. If a hacker brings their pre-cooked cheat sheet (a Rainbow Table), it won't work because every password has been uniquely salted!
+
+--------------------------------------------------------------------------------
+
+**Question:**
+Which of the following answers refer to algorithms used for generating and verifying digital signatures? (Select 3 answers)
+- ECDSA
+- RSA
+- ECDHE
+- DSA
+- GPG/PGP
+
+**1. Domain and Objective Category:**
+Domain 1: General Security Concepts (Objective 1.4: Explain the concepts of cryptography)
+
+**2. The Answer and Explanation:**
+**ECDSA, RSA, and DSA**
+- **ECDSA (Elliptic Curve Digital Signature Algorithm):** This is a highly efficient algorithm that uses elliptic curve cryptography to create digital signatures using much smaller key sizes than traditional methods.
+- **RSA (Rivest-Shamir-Adleman):** This is a widely used, highly versatile asymmetric algorithm that can be used for both encrypting data *and* generating digital signatures.
+- **DSA (Digital Signature Algorithm):** This is a federal standard designed specifically for generating and verifying digital signatures. 
+
+**3. Incorrect Answers:**
+- **ECDHE (Elliptic Curve Diffie-Hellman Ephemeral):** This is a *key exchange* algorithm, not a signature algorithm. It is used to securely swap encryption keys over the internet while providing perfect forward secrecy.
+- **GPG/PGP (GNU Privacy Guard / Pretty Good Privacy):** These are software suites/protocols that *use* digital signature algorithms (like RSA) to secure emails and files, but they are not the mathematical algorithms themselves.
+
+**4. Study Tips:**
+When you see **DSA**, think **D**igital **S**ignature **A**lgorithm! Both **DSA** and **ECDSA** give away the answer right in their names. Also, remember that **RSA** is the "Jack of all trades" that can do both encryption and signatures. 
+
+--------------------------------------------------------------------------------
+
+**Question:**
+Which of the following answers refer to the characteristic features of RSA? (Select 3 answers)
+- Asymmetric encryption algorithm
+- A public key used for encryption and a private key used for decryption
+- Suitable for bulk data encryption
+- Used for secure communications, digital signatures, and key exchange
+- Symmetric encryption algorithm
+- A single key used for both encryption and decryption
+
+**1. Domain and Objective Category:**
+Domain 1: General Security Concepts (Objective 1.4: Explain the concepts of cryptography)
+
+**2. The Answer and Explanation:**
+**Asymmetric encryption algorithm; A public key used for encryption and a private key used for decryption; Used for secure communications, digital signatures, and key exchange.**
+RSA is a classic, highly versatile asymmetric algorithm. Because it is asymmetric, it inherently uses a mathematical pair of keys: a Public Key for encryption and a Private Key for decryption. It is essentially the "Swiss Army Knife" of cryptography, as it can be used for securely exchanging symmetric keys, establishing secure communication channels, and creating digital signatures.
+
+**3. Incorrect Answers:**
+- **Suitable for bulk data encryption:** Asymmetric algorithms like RSA are incredibly slow and resource-heavy. They should never be used to encrypt large amounts of data (bulk data). Fast, symmetric algorithms like AES handle bulk data. 
+- **Symmetric encryption algorithm:** RSA uses two different keys, so it is asymmetric.
+- **A single key used for both encryption and decryption:** This is the definition of symmetric encryption (like AES), not asymmetric encryption like RSA.
+
+**4. Study Tips:**
+Think of RSA as the ultimate multitasker: it's **Asymmetric** and does almost everything (encryption, key exchange, signatures). But remember the golden rule of asymmetric math: it is **very slow**. Therefore, you never use it for bulk data!
+
+--------------------------------------------------------------------------------
+
+**Question:**
+Key stretching is a cryptographic technique that enhances the security of sensitive data, such as cryptographic keys and passwords. It works by repeatedly applying a resource-intensive function or algorithm to the input data, thus increasing the computational effort required to derive the original key or password, which makes the data more resistant to brute-force, dictionary, or rainbow table attacks.
+- True
+- False
+
+**1. Domain and Objective Category:**
+Domain 1: General Security Concepts (Objective 1.4: Explain the concepts of cryptography)
+
+**2. The Answer and Explanation:**
+**True**
+The statement is completely accurate. Key stretching algorithms (like PBKDF2, Bcrypt, or Argon2) intentionally make the hashing process slow and resource-heavy. They usually do this by running the hash algorithm thousands of times in a loop. By forcing the computer to do massive amounts of math for every single password attempt, it severely limits how many guesses a hacker can make per second.
+
+**3. Incorrect Answers:**
+- **False:** This is incorrect because the provided definition perfectly describes the concept and purpose of key stretching. 
+
+**4. Study Tips:**
+Think of key stretching like forcing a hacker to run a marathon through thick mud. Normally, a powerful computer can guess billions of passwords a second. Key stretching slows the computer down so much that a brute-force attack could take centuries instead of hours!
+
+--------------------------------------------------------------------------------
+
+**Question:**
+The term "Open public ledger" is used to describe a distributed database stored across multiple computers in a P2P network.
+- True
+- False
+
+**1. Domain and Objective Category:**
+Domain 1: General Security Concepts (Objective 1.4: Explain the concepts of cryptography - Blockchain)
+
+**2. The Answer and Explanation:**
+**True**
+The statement accurately defines an open public ledger. More commonly known as a **Blockchain**, an open public ledger is a decentralized, distributed database that is shared among the nodes (computers) of a peer-to-peer (P2P) network. Everyone on the network holds a copy of this ledger, ensuring transparency and making it extremely difficult for any single person to alter or forge transaction records.
+
+**3. Incorrect Answers:**
+- **False:** This is incorrect because the definition perfectly describes the core concept behind blockchain and distributed ledger technology.
+
+**4. Study Tips:**
+Whenever you see the phrase "open public ledger" or "distributed ledger," immediately think of **Blockchain** (like the technology behind Bitcoin). The entire point of a blockchain is that the record book (the ledger) is public and shared across thousands of computers, so nobody can secretly cheat the system!
+
+--------------------------------------------------------------------------------
+
+**Question:**
+Which of the answers listed below refers to a set of standards and specifications that define various cryptographic techniques, including formats for public keys, private keys, digital signatures, and digital certificates?
+- ITIL
+- RFC
+- PKCS
+- ISO/IEC
+
+**1. Domain and Objective Category:**
+Domain 1: General Security Concepts (Objective 1.4: Explain the concepts of cryptography - PKI)
+
+**2. The Answer and Explanation:**
+**PKCS (Public-Key Cryptography Standards)**
+PKCS is a group of technical standards originally created by RSA Security. These standards essentially act as the "rulebook" for public-key cryptography, ensuring that different software programs and hardware devices can securely exchange keys, certificates, and digital signatures in a language they all understand (such as the popular PKCS #12 format used to store server certificates and private keys).
+
+**3. Incorrect Answers:**
+- **ITIL (Information Technology Infrastructure Library):** This is a set of best practices for managing IT services and aligning them with business needs (like helpdesk ticketing processes). It has nothing to do with cryptography.
+- **RFC (Request for Comments):** This is a formal document created by the Internet Engineering Task Force (IETF) to define how internet protocols work. While there are RFCs *about* cryptography, RFC is a general publishing format, not a specific set of cryptographic standards.
+- **ISO/IEC:** These are massive international organizations that publish standards for almost everything in the world (from cybersecurity frameworks to the exact dimensions of credit cards). It is far too broad to be the specific answer here.
+
+**4. Study Tips:**
+This is an easy one if you know what the acronym stands for! When the question asks about **Public Key** and **Standards**, look for the answer that literally means **P**ublic-**K**ey **C**ryptography **S**tandards (**PKCS**).
+
+--------------------------------------------------------------------------------
+
+**Question:**
+Which of the following defines a file format for storing and exchanging personal identity information, including private keys and digital certificates?
+- P10
+- P11
+- P12
+- P13
+
+**1. Domain and Objective Category:**
+Domain 1: General Security Concepts (Objective 1.4: Explain the concepts of cryptography - PKI)
+
+**2. The Answer and Explanation:**
+**P12**
+P12 (short for PKCS #12) is a highly secure, password-protected file format. It is specifically designed to bundle a digital certificate (which contains the public key) together with its matching private key. Because it holds both halves of the key pair, it is commonly used by administrators to transfer and install identity information onto web servers or user devices.
+
+**3. Incorrect Answers:**
+- **P10 (PKCS #10):** This is the format for a Certificate Signing Request (CSR). It is the file you send to a Certificate Authority when you are *asking* them to create a certificate for you. It does not store your private key.
+- **P11 (PKCS #11):** This is not a file format at all. It is a programming interface (API) that allows software to talk to cryptographic hardware, like smart cards or Hardware Security Modules (HSMs).
+- **P13 (PKCS #13):** This standard relates to Elliptic Curve Cryptography, but it is not a file format used for bundling certificates and private keys.
+
+**4. Study Tips:**
+Think of **P12** like a securely locked briefcase. It is the only format on the exam that carries a **bundle** of both your digital certificate AND your highly sensitive private key! (Note: You may also see P12 files referred to as **.PFX** files; they are essentially the same thing).
+
+--------------------------------------------------------------------------------
+
+**Question:**
+What is the role of Registration Authority (RA) in PKI? (Select 2 answers)
+- Accepting requests for digital certificates
+- Validating digital certificates
+- Authenticating the entity making the request
+- Providing backup source for cryptographic keys
+- Issuing digital certificates
+
+**1. Domain and Objective Category:**
+Domain 1: General Security Concepts (Objective 1.4: Explain the concepts of cryptography - PKI)
+
+**2. The Answer and Explanation:**
+**Accepting requests for digital certificates; Authenticating the entity making the request**
+In a Public Key Infrastructure (PKI), the Registration Authority (RA) acts as the "front desk." When a user or device needs a new certificate, they send their request (a CSR) to the RA. The RA is responsible for accepting that request and rigorously verifying the identity of whoever is asking for it. Once the RA is satisfied that the user is who they claim to be, it forwards the approved request to the Certificate Authority (CA). 
+
+**3. Incorrect Answers:**
+- **Issuing digital certificates:** This is the most common trap! The RA *never* issues the certificate. Only the **Certificate Authority (CA)** actually generates and issues the certificate.
+- **Validating digital certificates:** Checking if a certificate is currently valid or revoked is done by checking a CRL (Certificate Revocation List) or using OCSP (Online Certificate Status Protocol), not by the RA.
+- **Providing backup source for cryptographic keys:** Backing up and storing private keys securely is handled by a Key Escrow system, not the RA.
+
+**4. Study Tips:**
+Think of getting a passport! 
+- The **RA (Registration Authority)** is like your local Post Office. You hand them your application (accepting the request), and they check your driver's license to make sure you are who you say you are (**authenticating** the entity). 
+- The **CA (Certificate Authority)** is the Federal Government. The Post Office sends them your approved application, and the Government is the one that actually **issues** (prints) the passport. 
+
+--------------------------------------------------------------------------------
+
